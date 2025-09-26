@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Diabetes Prediction</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: medium;
+        }
+        legend {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #333;
+        }
+        body {
+            background-color: #f7f7f7;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+        .alert-custom {
+            border-radius: 10px;
+            font-size: 1rem;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .alert-danger-custom {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .alert-success-custom {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <form action="" method="POST">
+                        <fieldset>
+                            <legend class="text-center">Diabetes Prediction</legend>
+                            
+                            {% if prediction != -1 %}
+                            <div class="alert alert-dismissible fade show mt-3 {% if prediction == 1 %} alert-danger-custom {% else %} alert-success-custom {% endif %}" role="alert">
+                                {% if prediction == 0 %} 
+                                    It is unlikely for the patient to have diabetes!
+                                {% else %} 
+                                    It is highly likely that the patient already has or will have diabetes!
+                                {% endif %}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            {% endif %}
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="pregs">Pregnancies</label>
+                                    <input type="number" min="0" max="10" class="form-control" name="pregs" placeholder="No. of Pregnancies" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="gluc">Glucose Level</label>
+                                    <input type="number" class="form-control" name="gluc" placeholder="Glucose Level (mg/dL)" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="bp">Blood Pressure</label>
+                                    <input type="number" class="form-control" name="bp" placeholder="Blood Pressure (mm Hg)" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="skin">Skin Thickness</label>
+                                    <input type="number" class="form-control" name="skin" placeholder="Skin Thickness (mm)" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="insulin">Insulin</label>
+                                    <input type="number" step="0.1" class="form-control" name="insulin" placeholder="Insulin" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="bmi">BMI</label>
+                                    <input type="number" step="0.1" class="form-control" name="bmi" placeholder="BMI" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="func">Diabetes Pedigree Function</label>
+                                    <input type="number" step="0.001" class="form-control" name="func" placeholder="Diabetes Pedigree Function" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="age">Age</label>
+                                    <input type="number" min="21" class="form-control" name="age" placeholder="Age (years)" required>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-custom">Predict</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
