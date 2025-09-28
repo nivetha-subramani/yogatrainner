@@ -1,16 +1,24 @@
 
 # Web Framework
-Flask>=2.3.2
+Flask>=3.0.0
 
 # Production WSGI Server (Essential for Render deployment)
 waitress>=3.0.0
 
-# Core AI/ML Libraries (Ensure these versions are compatible with Python 3.10)
-tensorflow==2.13.0
-mediapipe==0.10.11
-numpy==1.26.4
-protobuf==3.20.3
+# Core AI/ML Dependencies - USE MODERN VERSIONS
+# The latest stable version suggested by the error (2.20.0)
+tensorflow==2.20.0 
 
-# Other necessary libraries (e.g., for video processing)
+# Update MediaPipe to a version that supports the latest TensorFlow
+# Note: MediaPipe versioning can be tricky. Use the latest stable (0.10.x or 0.11.x)
+mediapipe==0.10.11 
+
+# Libraries with strict version requirements from the ML dependencies
+# Use a modern, compatible numpy version
+numpy>=1.26.4
+# protobuf is handled by the tensorflow/mediapipe install, but we set a high floor
+protobuf>=4.21.0
+
+# Other necessary libraries
 opencv-python-headless>=4.8.0 
-Pillow>=9.0.0 
+Pillow>=10.0.0
