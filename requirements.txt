@@ -1,8 +1,7 @@
-numpy
-mediapipe
-Flask
-requests
-imutils
-Werkzeug
-playsound
-protobuf
+Flask==2.3.2
+numpy==1.23.5
+mediapipe==0.10.1
+opencv-python==4.8.1.78
+imutils==0.5.4
+werkzeug==2.3.7
+playsound==1.3.0
