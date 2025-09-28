@@ -1,7 +1,22 @@
-Flask==2.3.2
-numpy==1.23.5
-mediapipe==0.10.1
-opencv-python==4.8.1.78
-imutils==0.5.4
-werkzeug==2.3.7
-playsound==1.3.0
+# Production Server (Required by Render)
+waitress>=3.0.0
+
+# Web Framework
+Flask>=2.3.2
+
+# Core ML/AI Dependencies
+# Using a compatible, modern TensorFlow version for Python 3.10
+tensorflow==2.13.0
+
+# MediaPipe is often bundled with the specific TF version, 
+# but we explicitly install it to be safe.
+mediapipe==0.10.11 
+
+# Libraries with strict version requirements from the ML dependencies
+# We use a version compatible with TF 2.13 and Python 3.10.
+numpy==1.26.4
+protobuf==3.20.3
+
+# Add any other libraries your app uses (e.g., OpenCV, Pillow)
+opencv-python-headless>=4.8.0 
+Pillow>=9.0.0 
