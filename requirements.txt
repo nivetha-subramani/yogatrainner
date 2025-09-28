@@ -1,5 +1,6 @@
 Flask==2.3.2
-numpy==1.23.5
+Flask==2.3.2
+numpy==1.24.4
 mediapipe==0.10.1
 opencv-python==4.8.1.78
 imutils==0.5.4
