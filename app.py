@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, flash
-
+import os
 import pickle
 
 import time
@@ -135,4 +135,5 @@ def get_random_image():
         return jsonify({'error': 'An error occurred'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))  # 10000 is fallback for local testing
+    app.run(debug=True, host='0.0.0.0', port=port)
